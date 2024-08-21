@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [[ -f "./env.sh"]]; then
+   echo "Используй переменные окружения из ${PWD}/env.sh"
+   source ./env.sh
+fi
+
+workDir="${WORKING_DIRECTORY=~/Workspace}"
+
 help() {
      echo "
      Usage: 
@@ -11,11 +18,37 @@ help() {
     "
 }
 
+init() {
+  # Создание рабочей директории
+     mkdir -p "${workDir}"
+    cd "${workDir}" || exit
+
+  #git clone
+  if [[ ! -d "spring-starter" ]]; then
+      git clone https://github.com/lebmaaaax/spring-starter.git
+  fi 
+  cd "spring-starter" || exit
+  git checkout 
+
+
+
+
+}
+
+
+
+
+
+
+
 case $1 in
 help)
-     help
-     ;;
+      help
+      ;;
+init)
+      init
+      ;;
 *)
-     echo "$1 Команда не доступна"
-     ;;
+      echo "$1 Команда не доступна"
+      ;;
 esac
