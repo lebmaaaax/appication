@@ -1,0 +1,21 @@
+#!/bin/bash
+
+help() {
+     echo "
+     Usage: 
+        ./application init - создание рабочей директории и базы данных.
+        ./applicarion clean - очищение рабочей директории.
+        ./application buid - запускает JUnit тесты для проверки работоспсобности приложения(-skipTests Чтобы пропустить тесты)
+         и билдит джар.
+        ./application up - запуск приложения.
+    "
+}
+
+case $1 in
+help)
+     help
+     ;;
+*)
+     echo "$1 Команда не доступна"
+     ;;
+esac
