@@ -19,17 +19,19 @@ help() {
 }
 
 init() {
-  # Создание рабочей директории
+# Создание рабочей директории
      mkdir -p "${workDir}"
     cd "${workDir}" || exit
 
-  #git clone
+# git clone
   if [[ ! -d "spring-starter" ]]; then
-      git clone https://github.com/lebmaaaax/spring-starter.git
+      git clone https://github.com/dmdev2020/spring-starter.git
   fi 
   cd "spring-starter" || exit
-  git checkout 
+  git checkout lesson-125
 
+# PostgresSQL
+  
 
 
 
